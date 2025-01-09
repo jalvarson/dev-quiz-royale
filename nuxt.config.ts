@@ -17,6 +17,7 @@ export default defineNuxtConfig({
           additionalData: `
           @use "~/assets/styles/variables/colors.scss" as *;
           @use "~/assets/styles/mixins/typography.scss" as *;
+          @use "~/assets/styles/mixins/breakpoints.scss" as *;
         `,
         },
       },
