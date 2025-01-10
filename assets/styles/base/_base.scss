@@ -1,4 +1,5 @@
 @use '~/assets/styles/variables/colors' as *;
+@use '~/assets/styles/mixins/typography' as *;
 
 html {
   font-size: 16px;
@@ -6,6 +7,7 @@ html {
 }
 
 body {
+  @include bodyLarge;
   font-size: 1rem;
   min-height: 100vh;
   background-color: $surface;
@@ -14,4 +16,19 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  @include bodyLarge;
+  color: $on-surface;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $on-surface;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: $on-surface;
 }
