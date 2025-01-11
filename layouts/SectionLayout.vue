@@ -61,6 +61,19 @@ defineProps({
         grid-template-columns: 1fr;
       }
     }
+
+    &--4 {
+      grid-template-columns: repeat(4, 1fr);
+
+      @include respond-to('desktop') {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include respond-to('tablet') {
+        grid-template-columns: 1fr;
+      }
+
+    }
   }
 }
 </style>
