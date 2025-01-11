@@ -1,29 +1,21 @@
 <script setup lang="ts">
-definePageMeta({
-  layout: 'quiz',
-});
+const router = useRouter();
 </script>
 
 <template>
   <header class="header">
-    <NuxtLink to="/" class="header__logo" title="Back to home"
-      >TechQuiz</NuxtLink
-    >
+    <BaseButton
+      type="button"
+      size="medium"
+      label="Go back"
+      :onPress="() => router.back()"
+    />
     <nav class="header__menu">
       <ul class="header__menu-links">
         <li class="header__menu-item">
-          <NuxtLink to="/quiz">Leaderboard</NuxtLink>
-        </li>
-        <li class="header__menu-item">
-          <NuxtLink to="/about">Quizes</NuxtLink>
+          <NuxtLink to="/">Go to leaderboard</NuxtLink>
         </li>
       </ul>
-      <BaseButton
-        type="button"
-        size="medium"
-        label="Take the Quiz now!"
-        :onPress="() => navigateTo('/quiz')"
-      />
     </nav>
   </header>
 </template>
@@ -34,7 +26,7 @@ definePageMeta({
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
-  background-color: $secondary;
+  background-color: $surface;
   height: 58px;
   overflow: hidden;
   position: fixed;

@@ -1,5 +1,5 @@
 <script setup>
-import SectionLayout from '~/layouts/SectionLayout.vue';
+import SectionLayout from '~/components/layouts/Section.vue';
 
 const top5Items = [
   { name: 'Jonas', score: '100%' },
@@ -66,6 +66,10 @@ const top5Items = [
   padding: 2rem;
   &__title {
     @include displayLarge;
+    @include respond-to('mobile') {
+      @include displayMedium;
+    }
+
   }
   &__description {
     @include bodyMedium;
