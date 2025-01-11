@@ -1,24 +1,33 @@
 /* main-theme colors */
-$surface: #0C0D2A;
-$on-surface: #FFFFFF;
+$surface: #0c0d2a;
+$on-surface: #ffffff;
 $primary: #10e98b;
 $on-primary: #054429;
-$secondary: #1D1F4A;
-$on-secondary: #FFFFFF;
-$tertiary: #8185FF;
+$secondary: #1d1f4a;
+$on-secondary: #ffffff;
+$tertiary: #8185ff;
 $on-tertiary: #13154a;
 
-
 /* Quiz Theme Colors */
-$frontend: #A1F6CA;
+$frontend: #a1f6ca;
 $on-frontend: #003820;
 
-$backend: #FDB275;
-$on-backend: #4A1100;
+$backend: #fdb275;
+$on-backend: #4a1100;
 
-$frameworks: #FFE094;
-$on-frameworks: #3D2C00;
+$frameworks: #ffe094;
+$on-frameworks: #3d2c00;
 
-$design-tools: #94D9FA;
-$on-design-tools: #00274D;
+$design-tools: #94d9fa;
+$on-design-tools: #00274d;
 
+$white-100: rgba(255, 255, 255, 1);
+$white-90: rgba(255, 255, 255, 0.9);
+$white-80: rgba(255, 255, 255, 0.8);
+$white-70: rgba(255, 255, 255, 0.7);
+$white-60: rgba(255, 255, 255, 0.6);
+$white-50: rgba(255, 255, 255, 0.5);
+$white-40: rgba(255, 255, 255, 0.4);
+$white-30: rgba(255, 255, 255, 0.3);
+$white-20: rgba(255, 255, 255, 0.2);
+$white-10: rgba(255, 255, 255, 0.1);
