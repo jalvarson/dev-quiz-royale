@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  layout: 'quiz',
+  layout: 'discover',
 });
 </script>
 
