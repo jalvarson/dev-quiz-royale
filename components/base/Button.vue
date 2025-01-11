@@ -10,6 +10,7 @@ interface ButtonProps {
   disabled?: boolean;
   loading?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  expand?: boolean;
 }
 withDefaults(defineProps<ButtonProps>(), {
   size: 'large',
@@ -18,6 +19,7 @@ withDefaults(defineProps<ButtonProps>(), {
   variant: 'contained',
   disabled: false,
   loading: false,
+  expand: false,
 });
 </script>
 
@@ -30,6 +32,7 @@ withDefaults(defineProps<ButtonProps>(), {
       `button-wrapper--${size}`,
       `button-wrapper--${color}`,
       `button-wrapper--${variant}`,
+        { 'button-wrapper--expand': expand },
     ]"
     @click="onPress"
   >
@@ -43,62 +46,79 @@ withDefaults(defineProps<ButtonProps>(), {
   justify-content: center;
   align-items: center;
   padding: 0.5rem 1rem;
+  border: none;
   border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.2s, color 0.2s;
   text-transform: uppercase;
+
   &:hover {
     opacity: 0.86;
-    transform: scale(1.04);
+    transform: scale(1.02);
   }
-    &:active {
-        opacity: 0.72;
-        transform: scale(1);
+
+  &:active {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+
+  &--small {
+    padding: 0.25rem 0.5rem;
+    @include labelMedium;
+    font-family: 'Passion One', sans-serif;
+  }
+
+  &--medium {
+    padding: 0.5rem 1rem;
+    @include labelLarge;
+    font-family: 'Passion One', sans-serif;
+  }
+
+  &--large {
+    padding: 0.75rem 1.4rem;
+    @include titleMedium;
+    font-family: 'Passion One', sans-serif;
+  }
+
+  // Variants
+  &--contained {
+    border: none;
+
+    &.button-wrapper--primary {
+      background-color: $primary;
+      color: $on-primary;
     }
-}
-.button-wrapper--small {
-  padding: 0.25rem 0.5rem;
-  @include labelMedium;
-  font-family: 'Passion One', sans-serif;
+
+    &.button-wrapper--secondary {
+      background-color: $tertiary;
+      color: $on-tertiary;
+    }
+  }
+
+  &--text {
+    background-color: transparent;
+    color: $primary;
+    border: none;
+
+    &.button-wrapper--secondary {
+      color: $tertiary;
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: $primary;
+    border: 1px solid $primary;
+
+    &.button-wrapper--secondary {
+      color: $tertiary;
+      border-color: $tertiary;
+    }
+  }
+
+  &--expand {
+    width: 100%;
+  }
 }
 
-.button-wrapper--medium {
-  padding: 0.5rem 1rem;
-  @include labelLarge;
-  font-family: 'Passion One', sans-serif;
-}
-
-.button-wrapper--large {
-  padding: 0.75rem 1.4rem;
-  @include titleMedium;
-  font-family: 'Passion One', sans-serif;
-}
-
-.button-wrapper--primary {
-  background-color: $primary;
-  color: $on-primary;
-}
-
-.button-wrapper--secondary {
-  background-color: $tertiary;
-  color: $on-tertiary;
-}
-
-.button-wrapper--text {
-  background-color: transparent;
-  color: $primary;
-  border: none;
-}
-
-.button-wrapper--outline {
-  background-color: transparent;
-  color: $primary;
-  border: 1px solid $primary;
-}
-
-.button-wrapper--contained {
-  background-color: $primary;
-  color: $on-primary;
-  border: none;
-}
 </style>
