@@ -26,7 +26,7 @@
 <script setup>
 defineProps({
   title: { type: String, required: true },
-  body: { type: String, required: true },
+  body: { type: String, required: false },
   variant: {
     type: String,
     default: 'default',

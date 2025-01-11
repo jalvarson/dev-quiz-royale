@@ -14,7 +14,7 @@
 <script setup>
 defineProps({
   title: { type: String, required: true },
-  body: { type: String, required: true },
+  body: { type: String, required: false },
   image: { type: String, default: null },
   imageAlt: { type: String, default: 'Image' },
 });
