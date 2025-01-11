@@ -19,7 +19,6 @@ body {
 }
 
 a {
-  @include bodyLarge;
   color: $on-surface;
   text-decoration: none;
 }
