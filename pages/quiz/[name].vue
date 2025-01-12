@@ -12,31 +12,21 @@ const allowedQuizNames = Object.values(QuizNames);
 if (!allowedQuizNames.includes(name)) {
   navigateTo('/404', { redirectCode: 404 });
 }
+
+const mockOptions = [
+  { label: 'Option 1' },
+  { label: 'Option 2' },
+  { label: 'Option 3' },
+  { label: 'Option 4' },
+];
 </script>
 
 <template>
   <div class="quiz-page">
     <div class="quiz-content">
-      <div class="quiz-header">
-        <div class="quiz-header__title">Question 7 of 10</div>
-        <div class="quiz-header__progress">
-          <QuizProgressBar :progress="7" />
-        </div>
-      </div>
-      <div class="quiz-question">
-        <div class="quiz-question__title">
-          What is the purpose of a RESTful API? What is the purpose of a RESTful API?
-
-        </div>
-      </div>
-      <div class="quiz-answers">
-        <div class="quiz-answers__content">
-          <BaseButton expand label="Next Question" />
-          <BaseButton expand label="Next Question" />
-          <BaseButton expand label="Next Question" />
-          <BaseButton expand label="Next Question" />
-        </div>
-      </div>
+      <QuizHeader :progress="10" />
+      <QuizQuestion question="What is the purpose of a RESTful API?" />
+      <QuizAnswerOptions :options="mockOptions" />
     </div>
   </div>
 </template>
