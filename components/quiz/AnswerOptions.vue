@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import type { AnswerOption } from '~/utils/types/AnswerOption';
+import type { AnswerOption } from '~/utils/types/quiz';
 
 const props = defineProps<{
-    options: AnswerOption[];
+  options: AnswerOption[];
+  onSelect: (index: number) => void;
 }>();
 </script>
 
@@ -12,8 +13,9 @@ const props = defineProps<{
       <BaseButton
         v-for="(option, index) in props.options"
         :key="index"
-        :label="option.label"
+        :label="option.text"
         expand
+        :onPress="() => props.onSelect(index)"
       />
     </div>
   </div>
