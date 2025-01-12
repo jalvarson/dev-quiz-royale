@@ -14,28 +14,28 @@ definePageMeta({
       </p>
 
       <LayoutsSection :columns="2">
-        <CardWrapper
+        <Card
           title="Backend Mastermind"
           body="Test your knowledge of backend technologies, frameworks, and concepts. From databases to APIs, do you have what it takes to call yourself a backend guru?"
           variant="backend"
           image="/images/backend.png"
           goTo="/quiz/backend"
         />
-        <CardWrapper
+        <Card
           title="Frontend Frenzy"
           body="Flex your CSS skills and JavaScript savvy. Can you ace the quiz on modern frontend techniques and tools?"
           variant="frontend"
           image="/images/frontend.png"
           goTo="/quiz/frontend"
         />
-        <CardWrapper
+        <Card
           title="Framework Fighter"
           body="Angular, React, Vue, or Svelte? See if you can identify the most popular frameworks and their unique features."
           variant="frameworks"
           image="/images/frameworks.png"
           goTo="/quiz/frameworks"
         />
-        <CardWrapper
+        <Card
           title="Design Suite Duel"
           body="Sketch, Figma, or Adobe XD? Show off your knowledge of the tools that power the world’s best designs."
           variant="designtools"

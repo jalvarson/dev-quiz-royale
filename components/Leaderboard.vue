@@ -19,38 +19,38 @@ const top5Items = [
     </p>
 
     <SectionLayout :columns="4">
-      <CardWrapper title="Top 5 Back-end">
+      <Card title="Top 5 Back-end">
         <ul>
           <li v-for="(item, index) in top5Items" :key="index" class="item">
             <span>{{ item.name }}</span>
             <span class="label">{{ item.score }}</span>
           </li>
         </ul>
-      </CardWrapper>
-      <CardWrapper title="Top 5 Front-end">
+      </Card>
+      <Card title="Top 5 Front-end">
         <ul>
           <li v-for="(item, index) in top5Items" :key="index" class="item">
             <span>{{ item.name }}</span>
             <span class="label">{{ item.score }}</span>
           </li>
         </ul>
-      </CardWrapper>
-      <CardWrapper title="Top 5 Framework">
+      </Card>
+      <Card title="Top 5 Framework">
         <ul>
           <li v-for="(item, index) in top5Items" :key="index" class="item">
             <span>{{ item.name }}</span>
             <span class="label">{{ item.score }}</span>
           </li>
         </ul>
-      </CardWrapper>
-      <CardWrapper title="Top 5 Design tools">
+      </Card>
+      <Card title="Top 5 Design tools">
         <ul>
           <li v-for="(item, index) in top5Items" :key="index" class="item">
             <span>{{ item.name }}</span>
             <span class="label">{{ item.score }}</span>
           </li>
         </ul>
-      </CardWrapper>
+      </Card>
     </SectionLayout>
   </div>
 </template>
