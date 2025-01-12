@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { QuizNames } from '~/utils/enums/quiz-names';
 
 definePageMeta({
@@ -6,28 +6,32 @@ definePageMeta({
 });
 
 const route = useRoute();
-const name = route.params.name;
+const name = route.params.name as QuizNames;
 const allowedQuizNames = Object.values(QuizNames);
 
 if (!allowedQuizNames.includes(name)) {
   navigateTo('/404', { redirectCode: 404 });
 }
 
-const mockOptions = [
-  { label: 'Option 1' },
-  { label: 'Option 2' },
-  { label: 'Option 3' },
-  { label: 'Option 4' },
-];
+const quizStore = useQuizStore();
+
+onMounted(() => {
+  quizStore.setCurrentQuizName(name);
+});
 </script>
 
 <template>
   <div class="quiz-page">
-    <div class="quiz-content">
-      <QuizHeader :progress="10" />
-      <QuizQuestion question="What is the purpose of a RESTful API?" />
-      <QuizAnswerOptions :options="mockOptions" />
+    <div v-if="quizStore.currentQuestion" class="quiz-content">
+      <QuizHeader :progress="quizStore.currentQuestionIndex" />
+      <QuizQuestion :question="quizStore.currentQuestion.question" />
+      <QuizAnswerOptions
+        :options="quizStore.currentQuestion.options"
+        :onSelect="quizStore.selectAnswer"
+      />
     </div>
+
+    <QuizResult v-else-if="quizStore.isQuizComplete" :score="quizStore.score" />
   </div>
 </template>
 
@@ -41,6 +45,7 @@ const mockOptions = [
   padding-top: 58px;
   background-image: url('/images/quiz-background.png');
   background-size: cover;
+  background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
@@ -54,53 +59,5 @@ const mockOptions = [
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem 1.4rem;
-}
-
-.quiz-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  &__title {
-    @include displaySmall;
-    color: $primary;
-  }
-  &__progress {
-    width: 100%;
-    max-width: 600px;
-  }
-}
-
-.quiz-question {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  &__title {
-    max-width: 680px;
-    padding: 0 1rem;
-    @include headlineLarge;
-    text-align: center;
-    @include respond-to('mobile') {
-      @include headlineMedium;
-    }
-  }
-}
-
-.quiz-answers {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  &__content {
-    width: 100%;
-    max-width: 680px;
-    display: grid;
-    gap: 0.7rem;
-    grid-template-columns: repeat(2, 1fr);
-    @include respond-to('mobile') {
-      grid-template-columns: 1fr;
-    }
-  }
 }
 </style>
