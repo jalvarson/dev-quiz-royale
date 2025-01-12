@@ -2,6 +2,7 @@ import { ref, computed } from 'vue';
 import type { Question } from '~/utils/types/quiz';
 
 export const useQuizStore = defineStore('quiz', () => {
+  const currentQuizName = ref('');
   const questions = ref<Question[]>([
     {
       id: 1,
@@ -145,6 +146,10 @@ export const useQuizStore = defineStore('quiz', () => {
     return Math.round((correctAnswersCount / questions.value.length) * 100);
   });
 
+  const setCurrentQuizName = (quizName: string) => {
+    currentQuizName.value = quizName;
+  };
+
   // Set the quiz questions
   const setQuestions = (newQuestions: Question[]) => {
     questions.value = newQuestions;
@@ -186,6 +191,8 @@ export const useQuizStore = defineStore('quiz', () => {
   };
 
   return {
+    currentQuizName,
+    setCurrentQuizName,
     questions,
     currentQuestionIndex,
     selectedAnswers,
