@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   pages: true,
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/google-fonts', '@nuxt/image'],
+  modules: ['@nuxtjs/google-fonts', '@nuxt/image', '@pinia/nuxt'],
   googleFonts: {
     families: {
       Inter: true,
