@@ -6,7 +6,7 @@ const quizStore = useQuizStore();
 
 <template>
   <header class="header">
-    <div class="header__logo" title="Back to home">TechQuiz</div>
+    <div class="header__logo" title="Back to home">Dev Quiz Royale</div>
     <div class="header__title">
         Active game: {{ quizStore.currentQuizName }}
     </div>

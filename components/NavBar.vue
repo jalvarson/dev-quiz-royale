@@ -7,7 +7,7 @@ definePageMeta({
 <template>
   <header class="header">
     <NuxtLink to="/" class="header__logo" title="Back to home"
-      >TechQuiz</NuxtLink
+      >Dev Quiz Royale</NuxtLink
     >
     <nav class="header__menu">
       <ul class="header__menu-links">
