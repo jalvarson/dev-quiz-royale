@@ -1,11 +1,15 @@
 <script setup lang="ts">
 const router = useRouter();
+const quizStore = useQuizStore();
+
 </script>
 
 <template>
   <header class="header">
     <div class="header__logo" title="Back to home">TechQuiz</div>
-    <div class="header__title">Name of quiz</div>
+    <div class="header__title">
+        Active game: {{ quizStore.currentQuizName }}
+    </div>
     <BaseButton
       type="button"
       color="secondary"
@@ -37,10 +41,10 @@ const router = useRouter();
     text-decoration: none;
   }
 
-    &__title {
-        @include titleMedium;
-        color: $on-secondary;
-    }
+  &__title {
+    @include titleMedium;
+    color: $on-secondary;
+  }
 
   &__menu {
     display: flex;
