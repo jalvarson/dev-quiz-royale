@@ -19,7 +19,7 @@
       <BaseButton
         class="main-header__button"
         type="button"
-        label="Take the Quiz now!"
+        label="Discover Quizzes"
         :onPress="() => navigateTo('/quiz')"
       />
     </div>
