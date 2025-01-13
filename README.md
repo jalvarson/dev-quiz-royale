@@ -1,6 +1,6 @@
-# Nuxt Minimal Starter
+# Dev Quiz Royale
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A quiz application built to demonstrate technical expertise as part of the Fast Track technical assessment. 
 
 ## Setup
 
@@ -72,4 +72,3 @@ yarn preview
 bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
