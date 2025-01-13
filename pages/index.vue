@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <section class="main-header">
@@ -64,10 +63,10 @@
     />
     <Card
       title="Design Suite Duel"
-      body="Sketch, Figma, or Adobe XD? Show off your knowledge of the tools that power the world’s best designs."
+      body="Sketch, Figma, or Adobe XD? Show off your knowledge of the tools that power the world's best designs."
       variant="designtools"
       image="/images/design-tools.png"
-      goTo="/quiz/design-tools"
+      goTo="/quiz/designtools"
     />
   </LayoutsSection>
 
