@@ -1,4 +1,6 @@
 <script setup>
+import { QuizNames } from '~/utils/enums/quiz-names';
+
 definePageMeta({
   layout: 'discover',
 });
@@ -40,7 +42,7 @@ definePageMeta({
           body="Sketch, Figma, or Adobe XD? Show off your knowledge of the tools that power the world’s best designs."
           variant="designtools"
           image="/images/design-tools.png"
-          goTo="/quiz/design-tools"
+          goTo="/quiz/designtools"
         />
       </LayoutsSection>
     </div>
