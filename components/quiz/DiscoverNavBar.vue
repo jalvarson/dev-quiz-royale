@@ -8,7 +8,7 @@ const router = useRouter();
       type="button"
       size="medium"
       label="Go back"
-      :onPress="() => router.back()"
+      :onPress="() => navigateTo('/')"
     />
     <nav class="header__menu">
       <ul class="header__menu-links">
