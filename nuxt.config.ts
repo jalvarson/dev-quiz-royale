@@ -3,7 +3,15 @@ export default defineNuxtConfig({
   pages: true,
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/google-fonts', '@nuxt/image', '@pinia/nuxt'],
+  runtimeConfig: {
+    mongodbUri: process.env.MONGODB_URI,
+  },
+  modules: [
+    '@nuxtjs/google-fonts',
+    '@nuxt/image',
+    '@pinia/nuxt',
+    'nuxt-mongoose',
+  ],
   googleFonts: {
     families: {
       Inter: true,
