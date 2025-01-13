@@ -44,6 +44,9 @@ const quizStore = useQuizStore();
   &__title {
     @include titleMedium;
     color: $on-secondary;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   &__menu {
