@@ -40,10 +40,13 @@ onMounted(() => {
         />
       </transition>
 
-      <QuizAnswerOptions
-        :options="quizStore.currentQuestion.options"
-        :onSelect="quizStore.selectAnswer"
-      />
+      <transition name="slide-out" mode="out-in">
+        <QuizAnswerOptions
+          :key="quizStore.currentQuestionIndex"
+          :options="quizStore.currentQuestion.options"
+          :onSelect="quizStore.selectAnswer"
+        />
+      </transition>
     </QuizWrapper>
 
     <QuizResult v-else-if="quizStore.isQuizComplete" :score="quizStore.score" />
@@ -61,50 +64,5 @@ onMounted(() => {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-}
-
-.slide-fade-enter-active {
-  animation: bounceIn 0.6s cubic-bezier(0.25, 1.5, 0.5, 1);
-}
-
-.slide-fade-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.slide-fade-enter-from {
-  opacity: 0;
-  transform: translateY(4rem);
-}
-
-.slide-fade-enter-to {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.slide-fade-leave-from {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.slide-fade-leave-to {
-  opacity: 0;
-  transform: translateY(-4rem);
-}
-
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: translateY(4rem);
-  }
-  40% {
-    transform: translateY(-0.5rem);
-  }
-  80% {
-    transform: translateY(0.25rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 </style>
