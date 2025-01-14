@@ -6,21 +6,33 @@ const handleLeaveGame = () => {
   quizStore.resetQuiz();
   router.back();
 };
+
+const handleExploreLeaderboard = () => {
+  quizStore.resetQuiz();
+  navigateTo('/');
+};
 </script>
 
 <template>
   <header class="header">
     <div class="header__logo" title="Back to home">Dev Quiz Royale</div>
-    <div class="header__title">
+    <div v-if="!quizStore.isQuizComplete" class="header__title">
       Active game: {{ quizStore.currentQuizName }}
     </div>
     <BaseButton
       v-if="!quizStore.isQuizComplete"
-      type="button"
       color="secondary"
       size="medium"
       label="Leave game"
       :onPress="handleLeaveGame"
+    />
+    <BaseButton
+      v-else="!quizStore.isQuizComplete"
+      variant="outline"
+      color="secondary"
+      size="medium"
+      label="Check the Leaderboard"
+      :onPress="handleExploreLeaderboard"
     />
   </header>
 </template>
