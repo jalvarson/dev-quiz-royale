@@ -11,11 +11,6 @@ const handleExploreMore = () => {
   navigateTo('/quiz');
 };
 
-const handleExploreLeaderboard = () => {
-  quizStore.resetQuiz();
-  navigateTo('/');
-};
-
 const getScoreMessage = (score: number) => {
   if (score >= 90) {
     return "You're a coding wizard! 🧙‍✨ Top of the leaderboard!";
@@ -55,14 +50,7 @@ onMounted(async () => {
     </div>
     <div v-if="quizStore.isSaving">Completing quiz...</div>
     <div class="quiz-result__actions" v-else>
-      <BaseButton label="Explore more" :onPress="handleExploreMore" />
-
-      <BaseButton
-        variant="outline"
-        color="secondary"
-        label="Check the Leaderboard"
-        :onPress="handleExploreLeaderboard"
-      />
+      <BaseButton label="Try another quiz" :onPress="handleExploreMore" />
     </div>
   </div>
 </template>
