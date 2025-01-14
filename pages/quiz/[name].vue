@@ -52,7 +52,7 @@ onMounted(async () => {
     </QuizWrapper>
 
     <!-- Show results -->
-    <QuizResult v-else-if="quizStore.isQuizComplete" :score="quizStore.score" />
+    <QuizResult v-else-if="quizStore.isQuizComplete" :score="quizStore.score" :percentile="quizStore.percentile" />
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-
 defineProps<{
   score: number;
+  percentile: number;
 }>();
 
 const quizStore = useQuizStore();
@@ -36,9 +36,18 @@ onMounted(async () => {
 <template>
   <div class="quiz-result">
     <div class="quiz-result__header">
+      <NuxtImg
+        :src="`/images/${quizStore.currentQuizName}.png`"
+        alt="Quiz complete"
+        width="180"
+        height="180"
+      />
       <h2 class="header-title">Quiz complete!</h2>
       <div class="header-subtitle">
-        You answered {{ score }}% of the questions correctly.
+        You answered <span class="header-subtitle__score">{{ score }}%</span> of
+        the questions correctly. You were better then
+        <span class="header-subtitle__percentile">{{ percentile }}%</span>
+        of all quizers
       </div>
       <div class="header-compare">
         {{ getScoreMessage(score) }}
@@ -65,6 +74,7 @@ onMounted(async () => {
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  padding: 0 2rem;
 
   &__header {
     display: flex;
@@ -77,22 +87,40 @@ onMounted(async () => {
 
     .header-title {
       @include displayLarge;
+      text-align: center;
+      @include respond-to(mobile) {
+        @include displayMedium;
+      }
     }
 
     .header-subtitle {
       @include titleLarge;
+      max-width: 580px;
+      text-align: center;
+      @include respond-to(mobile) {
+        @include titleMedium;
+      }
+      &__score {
+        color: $primary;
+      }
+      &__percentile {
+        color: $tertiary;
+      }
     }
 
     .header-compare {
       @include bodyLarge;
       margin-top: 1rem;
-      text-align: center; 
+      text-align: center;
     }
   }
 
   &__actions {
     display: flex;
     gap: 0.5rem;
+    @include respond-to(mobile) {
+      flex-direction: column;
+    }
   }
 }
 </style>

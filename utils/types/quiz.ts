@@ -11,13 +11,18 @@ export interface Question {
 }
 
 export interface Option {
-  text: string; 
+  text: string;
   isCorrect: boolean;
 }
 
 export interface SaveQuizResultPayload {
-    username: string;
-    quizName: string;
-    score: number;
-  }
-  
+  username: string;
+  quizName: string;
+  score: number;
+}
+
+export interface SaveQuizResultResponse {
+  success: boolean;
+  message: string;
+  percentile: number;
+}

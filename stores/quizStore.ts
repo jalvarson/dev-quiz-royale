@@ -1,5 +1,5 @@
 import { ref, computed } from 'vue';
-import type { Question, Quiz, SaveQuizResultPayload } from '~/utils/types/quiz';
+import { type SaveQuizResultResponse, type Question, type Quiz, type SaveQuizResultPayload } from '~/utils/types/quiz';
 
 export const useQuizStore = defineStore('quiz', () => {
   const isLoading = ref(false);
@@ -10,6 +10,8 @@ export const useQuizStore = defineStore('quiz', () => {
   const selectedAnswers = ref<{ questionId: number; selectedOption: number }[]>(
     []
   );
+  const percentile = ref<number>(0);
+
 
   const fetchQuiz = async (name: string) => {
     isLoading.value = true;
@@ -30,20 +32,21 @@ export const useQuizStore = defineStore('quiz', () => {
       console.warn('Quiz is not complete, result not saved.');
       return;
     }
-
+  
     const payload: SaveQuizResultPayload = {
-      username: 'testuser', // TODO: replace with actual username
+      username: 'Jonas', // Replace with actual username
       quizName: currentQuizName.value,
       score: score.value,
     };
-
+  
     try {
       isSaving.value = true;
-      await $fetch('/api/quiz/save', {
+      const result = await $fetch<SaveQuizResultResponse>('/api/quiz/save', {
         method: 'POST',
         body: payload,
       });
-      console.log('Quiz result saved successfully!');
+  
+      percentile.value = result.percentile;
     } catch (error) {
       console.error('Error saving quiz result:', error);
       throw new Error('Failed to save quiz result');
@@ -51,6 +54,7 @@ export const useQuizStore = defineStore('quiz', () => {
       isSaving.value = false;
     }
   };
+  
 
   // Get the current question based on the current question index
   const currentQuestion = computed(() => {
@@ -119,6 +123,7 @@ export const useQuizStore = defineStore('quiz', () => {
     selectedAnswers,
     currentQuestion,
     isQuizComplete,
+    percentile,
     score,
     fetchQuiz,
     saveQuizResult,
