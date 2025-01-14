@@ -1,7 +1,7 @@
 [build]
-  command = "npm run build"         # Command to build the app
-  publish = ".output/public"       # Location of static assets
-  functions = ".netlify/functions-internal/server"  # Location of serverless functions
+  command = "npm run build"
+  publish = ".nuxt/dist/client"  # Correct directory for static assets
+  functions = ".netlify/functions-internal"  # Serverless functions directory
 
 [build.environment]
-  SERVER_PRESET = "netlify"        # Nitro preset for Netlify
+  SERVER_PRESET = "netlify"  # Use Nitro's Netlify preset
