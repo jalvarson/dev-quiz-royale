@@ -11,11 +11,12 @@ definePageMeta({
     >
     <nav class="header__menu">
       <ul class="header__menu-links">
+        <!-- TODO: USE ANCHOR TAGS TO GO TO SECTION INSTEAD OF ROUTES -->
         <li class="header__menu-item">
           <NuxtLink to="/quiz">Leaderboard</NuxtLink>
         </li>
         <li class="header__menu-item">
-          <NuxtLink to="/about">Quizes</NuxtLink>
+          <NuxtLink to="/quiz">Quizes</NuxtLink>
         </li>
       </ul>
       <BaseButton
