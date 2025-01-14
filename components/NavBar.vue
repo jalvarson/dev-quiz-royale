@@ -22,7 +22,7 @@ definePageMeta({
       <BaseButton
         type="button"
         size="medium"
-        label="Disover quizzes"
+        label="Discover quizzes"
         :onPress="() => navigateTo('/quiz')"
       />
     </nav>
