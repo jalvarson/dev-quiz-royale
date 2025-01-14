@@ -2,20 +2,25 @@
 const router = useRouter();
 const quizStore = useQuizStore();
 
+const handleLeaveGame = () => {
+  quizStore.resetQuiz();
+  router.back();
+};
 </script>
 
 <template>
   <header class="header">
     <div class="header__logo" title="Back to home">Dev Quiz Royale</div>
     <div class="header__title">
-        Active game: {{ quizStore.currentQuizName }}
+      Active game: {{ quizStore.currentQuizName }}
     </div>
     <BaseButton
+      v-if="!quizStore.isQuizComplete"
       type="button"
       color="secondary"
       size="medium"
       label="Leave game"
-      :onPress="() => router.back()"
+      :onPress="handleLeaveGame"
     />
   </header>
 </template>
