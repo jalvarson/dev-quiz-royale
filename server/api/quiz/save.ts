@@ -7,7 +7,6 @@ export default defineEventHandler(async (event) => {
   await connectToDatabase(config.mongodbUri);
 
   const { quizName, score, username } = await readBody(event);
-  console.log('Received body:', { quizName, score, username });
   
   if (!quizName || !username || score == null) {
     console.error('Missing required fields:', { quizName, score, username });
