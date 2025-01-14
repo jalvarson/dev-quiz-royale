@@ -6,6 +6,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     mongodbUri: process.env.MONGODB_URI,
   },
+  nitro: {
+    preset: 'netlify',
+  },
   modules: [
     '@nuxtjs/google-fonts',
     '@nuxt/image',
