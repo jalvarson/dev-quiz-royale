@@ -9,7 +9,7 @@ const handleLeaveGame = () => {
 
 const handleExploreLeaderboard = () => {
   quizStore.resetQuiz();
-  navigateTo('/');
+  navigateTo({ path: '/', hash: '#leaderboard' });
 };
 </script>
 

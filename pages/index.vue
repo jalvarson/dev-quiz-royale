@@ -39,7 +39,7 @@
     />
   </LayoutsSection>
 
-  <LayoutsSection :columns="2">
+  <LayoutsSection :columns="2" id="quizzes">
     <Card
       title="Backend Mastermind"
       body="Test your knowledge of backend technologies, frameworks, and concepts. From databases to APIs, do you have what it takes to call yourself a backend guru?"
@@ -71,7 +71,7 @@
   </LayoutsSection>
 
   <LayoutsSection :columns="1">
-    <Leaderboard />
+    <Leaderboard id="leaderboard"/>
   </LayoutsSection>
 </template>
 

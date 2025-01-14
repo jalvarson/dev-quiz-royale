@@ -10,10 +10,10 @@
       <ul class="header__menu-links">
         <!-- TODO: USE ANCHOR TAGS TO GO TO SECTION INSTEAD OF ROUTES -->
         <li class="header__menu-item">
-          <NuxtLink to="/quiz">Leaderboard</NuxtLink>
+          <NuxtLink to="#leaderboard">Leaderboard</NuxtLink>
         </li>
         <li class="header__menu-item">
-          <NuxtLink to="/quiz">Quizes</NuxtLink>
+          <NuxtLink to="#quizzes">Quizzes</NuxtLink>
         </li>
       </ul>
       <BaseButton
