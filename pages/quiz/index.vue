@@ -41,7 +41,7 @@ definePageMeta({
           title="Design Suite Duel"
           body="Sketch, Figma, or Adobe XD? Show off your knowledge of the tools that power the world’s best designs."
           variant="designtools"
-          image="/images/design-tools.png"
+          image="/images/designtools.png"
           goTo="/quiz/designtools"
         />
       </LayoutsSection>
