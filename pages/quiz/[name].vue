@@ -62,6 +62,8 @@ onMounted(async () => {
   height: 100svh;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
   width: 100%;
   padding-top: 58px;
   background-image: url('/images/quiz-background.png');
