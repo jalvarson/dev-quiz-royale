@@ -1,57 +1,51 @@
 <script setup>
 import SectionLayout from '~/components/layouts/Section.vue';
 
-const top5Items = [
-  { name: 'Jonas', score: '100%' },
-  { name: 'Maria', score: '95%' },
-  { name: 'Liam', score: '92%' },
-  { name: 'Emma', score: '89%' },
-  { name: 'Noah', score: '87%' },
-];
+const leaderboardStore = useLeaderboardStore();
+
+onMounted(() => {
+  leaderboardStore.fetchLeaderboard();
+});
+
+// create computed property for setting different class dependign on score
+const getScoreClass = score => {
+  if (score > 80) {
+    return 'label--high-score';
+  } else if (score > 60) {
+    return 'label--medium-score';
+  } else {
+    return 'label--low-score';
+  }
+};
 </script>
 
 <template>
   <div class="leaderboard">
     <h2 class="leaderboard__title">Leaderboard</h2>
     <p class="leaderboard__description">
-        Compete with developers worldwide! Score big, climb the ranks, and claim
-        your spot as the ultimate tech trivia master.
+      Compete with developers worldwide! Score big, climb the ranks, and claim
+      your spot as the ultimate tech trivia master.
     </p>
 
-    <SectionLayout :columns="4">
-      <Card title="Top 5 Back-end">
+    <SectionLayout :columns="4" v-if="!leaderboardStore.isLoading">
+      <Card
+        v-for="(entries, category) in leaderboardStore.leaderboard"
+        :key="category"
+        :title="`Top 5 ${category}`"
+      >
         <ul>
-          <li v-for="(item, index) in top5Items" :key="index" class="item">
-            <span>{{ item.name }}</span>
-            <span class="label">{{ item.score }}</span>
-          </li>
-        </ul>
-      </Card>
-      <Card title="Top 5 Front-end">
-        <ul>
-          <li v-for="(item, index) in top5Items" :key="index" class="item">
-            <span>{{ item.name }}</span>
-            <span class="label">{{ item.score }}</span>
-          </li>
-        </ul>
-      </Card>
-      <Card title="Top 5 Framework">
-        <ul>
-          <li v-for="(item, index) in top5Items" :key="index" class="item">
-            <span>{{ item.name }}</span>
-            <span class="label">{{ item.score }}</span>
-          </li>
-        </ul>
-      </Card>
-      <Card title="Top 5 Design tools">
-        <ul>
-          <li v-for="(item, index) in top5Items" :key="index" class="item">
-            <span>{{ item.name }}</span>
-            <span class="label">{{ item.score }}</span>
+          <li v-for="(entry, index) in entries" :key="index" class="item">
+            <span>{{index +1}}. {{ entry.username }}</span>
+
+            <span :class="`label ${getScoreClass(entry.score)}`"
+              >{{ entry.score }}%</span
+            >
           </li>
         </ul>
       </Card>
     </SectionLayout>
+
+    <p v-else>Loading leaderboard...</p>
   </div>
 </template>
 
@@ -69,7 +63,6 @@ const top5Items = [
     @include respond-to('mobile') {
       @include displayMedium;
     }
-
   }
   &__description {
     @include bodyMedium;
@@ -96,11 +89,22 @@ ul {
 }
 
 .label {
-  @include labelSmall;
+  @include labelMedium;
   font-weight: 700;
-  background-color: $primary;
   color: $on-primary;
   padding: 0.2rem 0.3rem;
   border-radius: 0.3rem;
+  &--high-score {
+    background-color: $tertiary;
+    color: $on-tertiary;
+  }
+  &--medium-score {
+    background-color: $primary;
+    color: $on-primary;
+  }
+  &--low-score {
+    background-color: $primary-light;
+    color: $on-primary-light;
+  }
 }
 </style>
