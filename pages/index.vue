@@ -5,8 +5,8 @@
     <div class="main-header__container">
       <NuxtImg
         class="main-header__image"
-        src="/images/backend.png"
-        alt="Back-end"
+        src="/images/frontend.png"
+        alt="frontend person"
       />
       <h2 class="main-header__logo">Fast track coding challenge</h2>
       <h1 class="main-header__title">The Ultimate Developer Quiz</h1>
@@ -95,7 +95,10 @@
   }
 
   &__image {
-    max-width: 160px;
+    max-width: 220px;
+    animation-name: floating;
+    animation: floating 3s ease-in-out infinite;
+    margin-bottom: -2rem;
   }
 
   &__logo {
