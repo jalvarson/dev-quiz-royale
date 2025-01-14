@@ -1,6 +1,4 @@
 <script setup>
-import { QuizNames } from '~/utils/enums/quiz-names';
-
 definePageMeta({
   layout: 'discover',
 });
