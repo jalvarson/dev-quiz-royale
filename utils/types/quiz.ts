@@ -16,7 +16,7 @@ export interface Option {
 }
 
 export interface SaveQuizResultPayload {
-  username: string;
+  username: string | null;
   quizName: string;
   score: number;
 }
