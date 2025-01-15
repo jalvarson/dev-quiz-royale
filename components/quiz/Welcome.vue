@@ -15,13 +15,14 @@ const handleStartQuiz = () => {
 <template>
   <div class="quiz-container-name">
     <h2 class="quiz-container-name__title">
-      You are about the start the <span class="title-highlight">{{ name }}</span> quiz!
+      You are about the start the
+      <span class="title-highlight">{{ name }}</span> quiz!
     </h2>
     <p class="quiz-container-name__subtitle">
       Enter your Username to start the quiz
     </p>
     <BaseInput
-    class="quiz-container-name__input-username"
+      class="quiz-container-name__input-username"
       id="nameInput"
       v-model="usernameInput"
       type="text"
@@ -52,15 +53,17 @@ const handleStartQuiz = () => {
   &__title {
     @include displayLarge;
     text-align: center;
+    margin-bottom: 1rem;
+
     @include respond-to(mobile) {
       @include displayMedium;
     }
-    margin-bottom: 1rem;
 
     .title-highlight {
       color: $primary;
     }
   }
+
   &__subtitle {
     @include bodyLarge;
     text-align: center;
