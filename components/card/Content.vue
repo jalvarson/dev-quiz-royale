@@ -47,11 +47,12 @@ defineProps({
     position: absolute;
     bottom: -120px;
     right: -60px;
+    transition: all 0.3s ease-in-out;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .card--clickable:hover & {
+      transform: scale(1.1);
+      right: -80px;
     }
   }
 }
