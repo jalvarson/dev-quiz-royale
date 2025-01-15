@@ -98,6 +98,7 @@
     max-width: 220px;
     animation-name: floating;
     animation: floating 3s ease-in-out infinite;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     margin-bottom: -2rem;
   }
 
