@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { AnswerOption } from '~/utils/types/quiz';
+import type { Option } from '~/utils/types/quiz';
 
 const props = defineProps<{
-  options: AnswerOption[];
+  options: Option[];
   onSelect: (index: number) => void;
 }>();
 </script>
