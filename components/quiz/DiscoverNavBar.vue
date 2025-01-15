@@ -13,7 +13,7 @@ const router = useRouter();
     <nav class="header__menu">
       <ul class="header__menu-links">
         <li class="header__menu-item">
-          <NuxtLink to="/">Go to leaderboard</NuxtLink>
+          <NuxtLink to="/#leaderboard">Go to leaderboard</NuxtLink>
         </li>
       </ul>
     </nav>
