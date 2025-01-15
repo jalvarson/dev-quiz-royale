@@ -18,6 +18,7 @@ defineProps({
   justify-content: center;
   align-items: center;
   padding: 4rem 1.4rem;
+  width: 100%;
 
   &__container {
     display: grid;
@@ -72,7 +73,6 @@ defineProps({
       @include respond-to('tablet') {
         grid-template-columns: 1fr;
       }
-
     }
   }
 }
