@@ -4,6 +4,7 @@ import { type SaveQuizResultResponse, type Question, type Quiz, type SaveQuizRes
 export const useQuizStore = defineStore('quiz', () => {
   const isLoading = ref(false);
   const isSaving = ref(false);
+  const username = ref<string | null>(null);
   const questions = ref<Question[]>([]);
   const currentQuizName = ref('');
   const currentQuestionIndex = ref(1);
@@ -12,6 +13,9 @@ export const useQuizStore = defineStore('quiz', () => {
   );
   const percentile = ref<number>(0);
 
+  const setUsername = (name: string) => {
+    username.value = name;
+  };
 
   const fetchQuiz = async (name: string) => {
     isLoading.value = true;
@@ -34,7 +38,7 @@ export const useQuizStore = defineStore('quiz', () => {
     }
   
     const payload: SaveQuizResultPayload = {
-      username: 'Jonas', // Replace with actual username
+      username: username.value,
       quizName: currentQuizName.value,
       score: score.value,
     };
@@ -110,6 +114,7 @@ export const useQuizStore = defineStore('quiz', () => {
 
   // Resets the quiz
   const resetQuiz = () => {
+    username.value = null;
     currentQuestionIndex.value = 1;
     selectedAnswers.value = [];
   };
@@ -117,6 +122,7 @@ export const useQuizStore = defineStore('quiz', () => {
   return {
     isLoading,
     isSaving,
+    username,
     currentQuizName,
     questions,
     currentQuestionIndex,
@@ -125,6 +131,7 @@ export const useQuizStore = defineStore('quiz', () => {
     isQuizComplete,
     percentile,
     score,
+    setUsername,
     fetchQuiz,
     saveQuizResult,
     selectAnswer,

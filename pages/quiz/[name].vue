@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
 import { QuizNames } from '~/utils/enums/quiz-names';
-import type { Question } from '~/utils/types/quiz';
 
 definePageMeta({
   layout: 'quiz',
@@ -11,22 +9,24 @@ const route = useRoute();
 const name = route.params.name as QuizNames;
 
 const quizStore = useQuizStore();
+const usernameInput = ref<string>('');
 
-onMounted(async () => {
-  try {
-    await quizStore.fetchQuiz(name);
-  } catch (error) {
+const startQuiz = (username: string) => {
+  quizStore.setUsername(username);
+  quizStore.fetchQuiz(name).catch(error => {
     console.error('Failed to fetch quiz');
     navigateTo('/404', { redirectCode: 404 });
-  }
-});
+  });
+};
 </script>
 
 <template>
   <div class="quiz-page">
+
     <div v-if="quizStore.isLoading">Loading quiz...</div>
 
-    <!-- Show quiz content -->
+    <QuizWelcome v-else-if="!quizStore.username" :startQuiz="startQuiz" />
+
     <QuizWrapper
       v-else-if="quizStore.questions.length && !quizStore.isQuizComplete"
     >
@@ -51,8 +51,11 @@ onMounted(async () => {
       </transition>
     </QuizWrapper>
 
-    <!-- Show results -->
-    <QuizResult v-else-if="quizStore.isQuizComplete" :score="quizStore.score" :percentile="quizStore.percentile" />
+    <QuizResult
+      v-else-if="quizStore.isQuizComplete"
+      :score="quizStore.score"
+      :percentile="quizStore.percentile"
+    />
   </div>
 </template>
 
@@ -70,5 +73,15 @@ onMounted(async () => {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
+}
+
+.name-input-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-height: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.4rem;
 }
 </style>
