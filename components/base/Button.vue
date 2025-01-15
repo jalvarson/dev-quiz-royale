@@ -32,7 +32,7 @@ withDefaults(defineProps<ButtonProps>(), {
       `button-wrapper--${size}`,
       `button-wrapper--${color}`,
       `button-wrapper--${variant}`,
-        { 'button-wrapper--expand': expand },
+      { 'button-wrapper--expand': expand },
     ]"
     @click="onPress"
   >
@@ -119,6 +119,11 @@ withDefaults(defineProps<ButtonProps>(), {
   &--expand {
     width: 100%;
   }
-}
 
+  &:disabled {
+    background-color: $white-50;
+    color: white;
+    cursor: not-allowed;
+  }
+}
 </style>
