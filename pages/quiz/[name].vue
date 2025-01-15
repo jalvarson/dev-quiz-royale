@@ -17,6 +17,11 @@ const startQuiz = (username: string) => {
     navigateTo('/404', { redirectCode: 404 });
   });
 };
+
+onBeforeRouteLeave(() => {
+  quizStore.resetQuiz();
+});
+
 </script>
 
 <template>

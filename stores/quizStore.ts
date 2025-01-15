@@ -115,6 +115,8 @@ export const useQuizStore = defineStore('quiz', () => {
   // Resets the quiz
   const resetQuiz = () => {
     username.value = null;
+    questions.value = [];
+    currentQuizName.value = '';
     currentQuestionIndex.value = 1;
     selectedAnswers.value = [];
   };
