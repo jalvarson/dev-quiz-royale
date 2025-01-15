@@ -50,6 +50,12 @@ defineProps({
     transition: all 0.3s ease-in-out;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
+    @include respond-to('tablet') {
+        bottom: -120px;
+        right: -70px;
+        width: 220px;
+        height: 220px;
+    }
     .card--clickable:hover & {
       transform: scale(1.1);
       right: -80px;
