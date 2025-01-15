@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
+  name: string;
   startQuiz: (username: string) => void;
 }>();
 
@@ -12,54 +13,60 @@ const handleStartQuiz = () => {
 </script>
 
 <template>
-  <div class="quiz-content-name-input">
-    <h2>Welcome to the Quiz!</h2>
-    <label for="nameInput">Enter your name to begin:</label>
-    <input
+  <div class="quiz-container-name">
+    <h2 class="quiz-container-name__title">
+      You are about the start the <span class="title-highlight">{{ name }}</span> quiz!
+    </h2>
+    <p class="quiz-container-name__subtitle">
+      Enter your Username to start the quiz
+    </p>
+    <BaseInput
+    class="quiz-container-name__input-username"
       id="nameInput"
       v-model="usernameInput"
-      placeholder="Enter your name"
       type="text"
+      placeholder="E.g. VueNinja"
     />
-    <button :disabled="!usernameInput" @click="handleStartQuiz">
-      Start Quiz
-    </button>
+    <BaseButton
+      :disabled="!usernameInput"
+      @click="handleStartQuiz"
+      label="Start Quiz"
+    />
   </div>
 </template>
 
-<style scoped>
-.quiz-content-name-input {
+<style scoped lang="scss">
+.quiz-container-name {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-}
+  max-width: 680px;
+  padding: 0 2rem;
 
-input {
-  padding: 0.5rem;
-  font-size: 1rem;
-  width: 100%;
-  max-width: 300px;
-}
+  &__input-username {
+    max-width: 480px;
+  }
 
-button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 0.25rem;
-  transition: background-color 0.3s;
-}
+  &__title {
+    @include displayLarge;
+    text-align: center;
+    @include respond-to(mobile) {
+      @include displayMedium;
+    }
+    margin-bottom: 1rem;
 
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-button:hover:not(:disabled) {
-  background-color: #0056b3;
+    .title-highlight {
+      color: $primary;
+    }
+  }
+  &__subtitle {
+    @include bodyLarge;
+    text-align: center;
+    @include respond-to(mobile) {
+      @include bodyMedium;
+    }
+  }
 }
 </style>

@@ -6,14 +6,13 @@ definePageMeta({
 });
 
 const route = useRoute();
-const name = route.params.name as QuizNames;
+const quizName = route.params.name as QuizNames;
 
 const quizStore = useQuizStore();
-const usernameInput = ref<string>('');
 
 const startQuiz = (username: string) => {
   quizStore.setUsername(username);
-  quizStore.fetchQuiz(name).catch(error => {
+  quizStore.fetchQuiz(quizName).catch(error => {
     console.error('Failed to fetch quiz');
     navigateTo('/404', { redirectCode: 404 });
   });
@@ -25,7 +24,7 @@ const startQuiz = (username: string) => {
 
     <div v-if="quizStore.isLoading">Loading quiz...</div>
 
-    <QuizWelcome v-else-if="!quizStore.username" :startQuiz="startQuiz" />
+    <QuizWelcome :name="quizName" v-else-if="!quizStore.username" :startQuiz="startQuiz" />
 
     <QuizWrapper
       v-else-if="quizStore.questions.length && !quizStore.isQuizComplete"

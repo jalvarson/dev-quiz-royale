@@ -39,7 +39,7 @@ onMounted(async () => {
       />
       <h2 class="header-title">Quiz complete!</h2>
       <div class="header-subtitle">
-        You answered <span class="header-subtitle__score">{{ score }}%</span> of
+        Good job {{ quizStore.username }} You answered <span class="header-subtitle__score">{{ score }}%</span> of
         the questions correctly. You were better then
         <span class="header-subtitle__percentile">{{ percentile }}%</span>
         of all quizers
