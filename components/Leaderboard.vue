@@ -35,7 +35,9 @@ const getScoreClass = score => {
       >
         <ul>
           <li v-for="(entry, index) in entries" :key="index" class="item">
-            <span>{{index +1}}. {{ entry.username }}</span>
+            <span class="item__username"
+              >{{ index + 1 }}. {{ entry.username }}</span
+            >
 
             <span :class="`label ${getScoreClass(entry.score)}`"
               >{{ entry.score }}%</span
@@ -80,9 +82,18 @@ ul {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.16);
   padding: 0.5rem 0;
+
+  &__username {
+    display: inline-block;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   &:last-child {
     border-bottom: none;
   }
