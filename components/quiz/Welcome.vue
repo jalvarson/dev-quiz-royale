@@ -26,7 +26,7 @@ const handleStartQuiz = () => {
       id="nameInput"
       v-model="usernameInput"
       type="text"
-      placeholder="E.g. VueNinja"
+      placeholder="E.g. Vue Ninja 🥷"
     />
     <BaseButton
       :disabled="!usernameInput"
