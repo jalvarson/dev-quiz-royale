@@ -73,6 +73,7 @@ const closeMenu = () => {
     @include titleLarge;
     color: $on-secondary;
     text-decoration: none;
+    user-select: none;
   }
 
   .burger {

@@ -56,6 +56,8 @@ const handleExploreLeaderboard = () => {
     @include titleLarge;
     color: $on-secondary;
     text-decoration: none;
+    cursor: default;
+    user-select: none;
   }
 
   &__title {
@@ -64,6 +66,9 @@ const handleExploreLeaderboard = () => {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    @include respond-to('tablet') {
+      display: none;
+    }
   }
 
   &__menu {
