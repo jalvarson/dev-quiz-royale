@@ -75,7 +75,7 @@ withDefaults(defineProps<ButtonProps>(), {
   }
 
   &--large {
-    padding: 0.75rem 1.4rem;
+    padding: 0.85rem 1.4rem;
     @include titleMedium;
     font-family: 'Passion One', sans-serif;
   }
