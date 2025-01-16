@@ -31,12 +31,12 @@ onUnmounted(() => {
         src="/images/frontend.png"
         alt="frontend person"
       />
-      <h2 class="main-header__logo">Fast track coding challenge</h2>
-      <h1 class="main-header__title">The Ultimate Developer Quiz</h1>
+      <h2 class="main-header__logo">Fast track coding test</h2>
+      <h1 class="main-header__title">Dev Quiz Royale</h1>
       <h3 class="main-header__subtitle">
-        Welcome to the ultimate developer quiz! Whether you're a backend pro,
+       The ultimate developer quiz! Whether you're a backend pro,
         frontend ace, or design tool expert, we've got challenges for you. Test
-        your skills, learn, and show off your tech knowledge. Ready to play?
+        your skills, show off your tech knowledge.
       </h3>
       <BaseButton
         class="main-header__button"
@@ -243,12 +243,12 @@ onUnmounted(() => {
   }
 
   &__logo {
-    @include displaySmall;
+    @include titleLarge;
     color: $tertiary;
     text-align: center;
 
     @include respond-to('mobile') {
-      @include titleLarge;
+      @include titleMedium;
     }
   }
 
@@ -257,7 +257,7 @@ onUnmounted(() => {
     text-align: center;
 
     @include respond-to('mobile') {
-      @include displayMedium;
+      @include headlineLarge;
     }
   }
 
