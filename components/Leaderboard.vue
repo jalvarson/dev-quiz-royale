@@ -7,7 +7,7 @@ onMounted(() => {
   leaderboardStore.fetchLeaderboard();
 });
 
-// create computed property for setting different class dependign on score
+// Set the color of the score label based on the score value
 const getScoreClass = score => {
   if (score > 80) {
     return 'label--high-score';
@@ -38,7 +38,6 @@ const getScoreClass = score => {
             <span class="item__username"
               >{{ index + 1 }}. {{ entry.username }}</span
             >
-
             <span :class="`label ${getScoreClass(entry.score)}`"
               >{{ entry.score }}%</span
             >
@@ -57,7 +56,7 @@ const getScoreClass = score => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.1);
+background-color: $secondary-container;
   border-radius: 0.5rem;
   padding: 2rem;
   &__title {

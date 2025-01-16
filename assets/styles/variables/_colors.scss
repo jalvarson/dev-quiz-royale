@@ -1,4 +1,4 @@
-/* main-theme colors */
+/* Main theme colors */
 $surface: #0c0d2a;
 $on-surface: #ffffff;
 $primary: #10e98b;
@@ -7,12 +7,14 @@ $primary-light: #7cecbc;
 $on-primary-light: #054429;
 $primary-dark: #11bc72;
 $on-primary-dark: #054429;
-$secondary: #1d1f4a;
+$secondary: #1b1c42;
 $on-secondary: #ffffff;
+$secondary-container: #25264e;
+$on-secondary-container: #ffffff;
 $tertiary: #8185ff;
 $on-tertiary: #13154a;
 
-/* Quiz Theme Colors */
+/* Quiz theme colors */
 $frontend: #a1f6ca;
 $on-frontend: #003820;
 
@@ -25,6 +27,7 @@ $on-frameworks: #3d2c00;
 $design-tools: #94d9fa;
 $on-design-tools: #00274d;
 
+/* Grayscale */
 $white-100: rgba(255, 255, 255, 1);
 $white-90: rgba(255, 255, 255, 0.9);
 $white-80: rgba(255, 255, 255, 0.8);
